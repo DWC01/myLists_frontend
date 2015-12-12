@@ -1,0 +1,26 @@
+$primary-text: #181818;
+
+.ember-application .neon-blue {
+  background-color: $neon-blue;
+}
+
+.ember-application .neon-blue-text {
+  color: $neon-blue;
+}
+
+.ember-application .primary-text {
+  color: $primary-text;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+html,body,h1,h2,h3,h4,h5,h6 {
+  font-size: 14px;
+  color: $primary-text;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
