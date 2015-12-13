@@ -1,0 +1,22 @@
+<h3 class="center">
+  Users List
+</h3>
+<div class='container'>
+  <ul class="collection">
+    {{#each users as |user|}}  
+      <li class="collection-item avatar">
+        <img src="{{user.avatar.profile_url}}" alt="avatar" class="circle">
+        <span class="title">
+          
+          {{user.first_name}} {{user.last_name}}
+        </span>
+        <p> First Line <br>
+           Second Line
+        </p>
+        <a href="#!" class="secondary-content">
+          <i class="mdi-action-grade"></i>
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</div>

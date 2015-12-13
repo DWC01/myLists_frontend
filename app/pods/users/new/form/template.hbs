@@ -1,0 +1,62 @@
+<div class="row">
+  <form class="col s12" {{action "createUser" on="submit"}}>
+    
+    <div class="row">
+      <div class="input-field">
+        {{input type="text" value=user.first_name name="first_name" class="validate" id="sign-up-first-name"}}
+        <label for="sign-up-first-name"> First Name </label>
+        <div class="input-field-error">
+          {{user_errors.first_name}}
+        </div>
+      </div>
+      <div class="input-field">
+        {{input type="text" value=user.last_name name="last_name" class="validate" id="sign-up-last-name"}}
+      <label for="sign-up-last-name"> Last Name </label>
+      </div>
+    </div>
+
+    <div class="row input-field">
+      {{input type="email" value=user.email name="email" class="validate" id="sign-up-email"}}
+      <label for="sign-up-email"> Email </label>
+      <div class="input-field-error">
+        {{user_errors.email}}
+      </div>
+    </div>
+
+    <div class="row input-field">
+      {{input type="password" value=user.password name="password" class="validate" id="sign-up-password"}}
+      <label for="sign-up-password"> Password </label>
+      <div class="input-field-error">
+        {{user_errors.password}}
+      </div>
+    </div>
+
+    <div class="row input-field">
+      {{input type="password" value=user.password_confirmation name="password_confirmation" class="validate" id="sign-up-password-confirmation"}}
+      <label for="sign-up-password-confirmation"> Password Confirmation </label>
+      <div class="input-field-error">
+        {{user_errors.password_confirmation}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field materialize-checkbox">
+        {{input type="checkbox" id="remember-me"}}
+        <label for="remember-me">Remember Me</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <button type="submit" name="submit" class="waves-effect waves-light btn">
+        Submit
+      </button>
+    </div>
+  </form>
+  <div class="row center">
+    <div class="forgot-password">
+      {{#link-to 'passwords.new'}}
+        Forget your password?
+      {{/link-to}}
+    </div>
+  </div>
+</div>

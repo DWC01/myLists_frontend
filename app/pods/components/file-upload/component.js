@@ -19,7 +19,7 @@ export default EmberUploader.FileField.extend({
 
     uploader.on('didUpload', function(response) {
       self.sendAction('setMetaData', response);
-      self._clearValue();
+      self.sendAction('setAndSaveData', response);
     });
 
   }

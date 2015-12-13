@@ -1,0 +1,14 @@
+.nav-user-name {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 3px;
+}
+
+.nav-user-avatar {
+  display: inline-block;
+  position: relative;
+  top: 9px;
+  & img {
+    border-radius: 50%;
+  }
+}

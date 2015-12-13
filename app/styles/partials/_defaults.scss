@@ -1,0 +1,13 @@
+$primary-text: #181818;
+
+.ember-application .neon-blue {
+  background-color: $neon-blue;
+}
+
+.ember-application .neon-blue-text {
+  color: $neon-blue;
+}
+
+.ember-application .primary-text {
+  color: $primary-text;
+}

@@ -1,13 +1,38 @@
 <div class="nav-wrapper container">
   <a id="logo-container" href="#" class="brand-logo primary-text">
-    <i class="mdi-navigation-menu"></i>
+    <i class="mdi-social-whatshot">
+      Logo
+    </i>
   </a>
   <ul class="right hide-on-med-and-down primary-text">
-    <li>
-      <a href="#">
-        Navbar Link
-      </a>
-    </li>
+    {{#if isLoggedIn}}
+      <li>
+        {{#link-to 'users.show' currentUser.id}}
+          <div class="nav-user-avatar"> 
+            <img src={{currentUser.avatar.nav_url}} >
+          </div>
+          <div class="nav-user-name"> 
+            {{currentUser.first_name}}
+          </div>
+        {{/link-to}}
+      </li>
+      <li class='pull-right'>
+        {{#link-to 'sessions.destroy'}}
+          Logout
+        {{/link-to}}
+      </li>
+    {{else}}
+      <li>
+        {{#link-to 'sessions.new'}}
+          Sign In
+        {{/link-to}}
+      </li>
+      <li>
+        {{#link-to 'users.new'}}
+          Sign Up
+        {{/link-to}}
+      </li>
+    {{/if}}
   </ul>
 
   <ul id="nav-mobile" class="side-nav">

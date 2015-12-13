@@ -1,0 +1,49 @@
+<div class="row">
+  <form class="col s12" {{action 'signIn' on="submit"}}>
+
+    <div class="row">
+      <div class="input-field">
+        {{input type="email" id="sign-in-email" value=email name="sign-in-email" 
+        class="validate"}}
+        <label for="sign-in-email"> 
+          Email 
+        </label>
+        <div class="input-field-error">
+          {{userErrors.email}}
+        </div> 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+        {{input type="password" value=password id="sign-in-password" name="password" class="validate"}}
+        <label for="sign-in-password">
+          Password
+        </label>
+        <div class="input-field-error">
+          {{userErrors.password}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field materialize-checkbox">
+        {{input type="checkbox" id="remember-me"}}
+        <label for="remember-me">Remember Me</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <button type="submit" name="submit" class="waves-effect waves-light btn">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+<div class="row center">
+  <div class="forgot-password">
+    {{#link-to 'passwords.new'}}
+      Forget your password?
+    {{/link-to}}
+  </div>
+</div>

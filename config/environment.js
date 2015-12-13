@@ -17,10 +17,23 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    contentSecurityPolicyHeader: 'Content-Security-Policy',
+    contentSecurityPolicy: {
+      'default-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+      'img-src':     "* 'unsafe-inline' 'unsafe-eval'",
+      'frame-src':   "'self' 'unsafe-inline' 'unsafe-eval'",
+      'connect-src': "'self'  http://localhost:3000 'unsafe-inline' 'unsafe-eval'",
+      'font-src':    "'self' 'unsafe-inline' 'unsafe-eval'",
+      'media-src':   "'self' 'unsafe-inline' 'unsafe-eval'",
+      'object-src':  "'self' 'unsafe-inline' 'unsafe-eval'",
+      'style-src':   "'self' 'unsafe-inline' 'unsafe-eval'",
+      'script-src':  "'self' 'unsafe-inline' 'unsafe-eval'"
     }
   };
 
   if (environment === 'development') {
+    ENV.APP.base_url = 'http://localhost:3000';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     ENV.APP.LOG_TRANSITIONS = true;
@@ -41,7 +54,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.base_url = 'http://production-url.com';
   }
 
   return ENV;
