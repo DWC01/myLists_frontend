@@ -10,30 +10,24 @@ export default Ember.Controller.extend({
     this.setProperties({
       first_name: undefined,
       last_name: undefined,
-      email: undefined
+      email: undefined,
+      avatar: undefined,
+      user: undefined
     });
   },
-  
-  // --- Bind Observers -------------
-
-  _setAvatarProperties: function() {
-    this.get('avatar').set('meta_data', this.get('meta_data'));
-  }.observes('meta_data'),
 
   // --- Update Models -------------
 
   _updateAvatar: function() {
+    let self = this;
     if (this.get('avatar.hasDirtyAttributes')) {
       this.get('avatar').save().then(
         function(avatar) {
-          this._updateCurrentAvatar(avatar);
-          // TODO: FLASH
-          // this._setSuccessFlash();
-        }.bind(this), 
+          self._updateCurrentAvatar(avatar);
+        }, 
         function() {
-          // TODO: FLASH
-          // this._setErrorFlash();
-        }.bind(this)
+          // this._setError();
+        }
       );
     }
   },
@@ -45,17 +39,15 @@ export default Ember.Controller.extend({
   },
 
   _updateUser: function() {
+    let self = this;
     if (this.get('user.hasDirtyAttributes')) {        
       this.get('user').save().then(
         function(user) {
-          this._updateCurrentUser(user);
-          // TODO: FLASH
-          // this._setSuccessFlash();
-        }.bind(this), 
+          self._updateCurrentUser(user);
+        }, 
         function() {
-          // TODO: FLASH
-          // this._setErrorFlash();
-        }.bind(this)
+          // this._setError();
+        }
       );
     }
   },
@@ -74,12 +66,13 @@ export default Ember.Controller.extend({
       this._updateUser();
     },
     delete: function() {
+      let self = this;
       this.get('user').destroyRecord().then(function() {
-        this.transitionToRoute('users');
-      }.bind(this));
+        self.transitionToRoute('users');
+      });
     },
     setMetaData: function(meta_data) {
-      this.set('meta_data', JSON.stringify(meta_data));
+      this.get('avatar').set('meta_data', JSON.stringify(meta_data));
     }
   }
 });

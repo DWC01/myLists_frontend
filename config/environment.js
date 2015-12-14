@@ -23,7 +23,7 @@ module.exports = function(environment) {
       'default-src': "'self' 'unsafe-inline' 'unsafe-eval'",
       'img-src':     "* 'unsafe-inline' 'unsafe-eval'",
       'frame-src':   "'self' 'unsafe-inline' 'unsafe-eval'",
-      'connect-src': "'self'  http://localhost:3000 'unsafe-inline' 'unsafe-eval'",
+      'connect-src': "* 'unsafe-inline' 'unsafe-eval'",
       'font-src':    "'self' 'unsafe-inline' 'unsafe-eval'",
       'media-src':   "'self' 'unsafe-inline' 'unsafe-eval'",
       'object-src':  "'self' 'unsafe-inline' 'unsafe-eval'",

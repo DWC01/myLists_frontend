@@ -14,6 +14,6 @@ export default Ember.Route.extend({
 
     controller.clearAll();
     controller.set('user', user);  
-    controller.set('avatar', user.get('avatar'));
+    controller.set('avatar', user.get('avatar').get('content'));
   }
 });

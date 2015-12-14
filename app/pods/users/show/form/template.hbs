@@ -1,42 +1,56 @@
 <div class="container">
-  
   <form {{action "saveChanges" on="submit"}}>  
 
-    <div class="account-settings-wrap primary-border">
-      <div class="account-settings-row"> 
-        <div class="account-settings-value-2 input-field">
-          {{input type="text" value=user.first_name name="first-name" placeholder="first name" class="validate"}}
-        </div>
-        <div class="account-settings-value-2 input-field">
-          {{input type="text" value=user.last_name name="last-name" placeholder="last name" class="validate"}}
-        </div>
+    <div class="row">
+      <div class="input-field">
+        {{input type="text" value=user.first_name name="first-name" placeholder="first name" class="validate"}}
       </div>
-      <div class="account-settings-row input-field">
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+        {{input type="text" value=user.last_name name="last-name" placeholder="last name" class="validate"}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
         {{input type="text" value=user.email name="email" placeholder="email" class="validate"}}
       </div>
-      <div class="account-settings-row input-field">
+    </div>
+
+    <div class="row">
+      <div class="input-field">
         {{input type="text" value=user.position name="position" placeholder="position" class="form-control"}}
       </div>
-      <div class="account-settings-row input-field">
+    </div>
+
+    <div class="row">
+      <div class="input-field">
         {{input type="text" value=user.title name="title" placeholder="title" class="form-control"}}
       </div>
-      <div class="account-settings-row input-field">
+    </div>
+    
+    <div class="row">
+      <div class="input-field">
         {{input type="text" value=user.company name="company" placeholder="company" class="form-control"}}
       </div>
-      <div class="account-settings-row account-settings-row-photo">
-        <div class="account-settings-user-photo-wrap">
-          <img src={{avatar.profile_url}} alt=" ">
-        </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+        <img src={{avatar.profile_url}} alt="avatar">
         {{file-upload 
-          url="/api/file_upload"
+          url="http://www.localhost:3000/api/file_upload"
           setMetaData=(action "setMetaData")}}
       </div>
-      <div class="account-settings-submit-wrap">
-        <button type="submit" name="submit" class="waves-effect waves-light btn account-settings-submit">
-          Save
-        </button>
-      </div>
-    </div><!-- End of Account Settings Wrap -->
-  </form>
+    </div>
 
+    <div class="row">
+      <button type="submit" name="submit" class="waves-effect waves-light btn account-settings-submit">
+        Save
+      </button>
+    </div>
+
+  </form>
 </div>
