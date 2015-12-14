@@ -12,7 +12,6 @@ Router.map(function() {
   this.route('users', function() {
     this.route('show', {path: ':user_id'});
   });
-
   this.route('users.new', {path: 'sign-up'});
 
   this.route('sessions.new', {path: 'sign-in'});

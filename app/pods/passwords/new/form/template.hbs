@@ -1,0 +1,22 @@
+<form {{action "emailInstructions" on="submit"}}>
+  
+  <div class="row">
+    <div class="input-field">
+      {{input type="email" 
+        value=email name="email" class="form-control" id="forgot-email"}}
+      <label for="forgot-email"> Email </label>
+        <div class="form-field-error">
+          {{password_status}}
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="submit-field">
+      <button type="submit" name="Submit" class="waves-effect waves-light btn">
+        Submit
+      </button>
+    </div>
+  </div>
+
+</form>
