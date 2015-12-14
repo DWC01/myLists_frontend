@@ -4,16 +4,15 @@ export default Ember.Route.extend({
 
   session: Ember.inject.service('session'),
   
-  model() {
-    return this.get('session').get('currentUser');
+  model(params) {
+    return this.store.find('user', params.user_id);
   },
 
-  setupController(controller) {
-    let session = this.get('session'),
-        user = session.get('currentUser');
+  setupController(controller, model) {
+    let session = this.get('session');
 
     controller.clearAll();
-    controller.set('user', user);  
-    controller.set('avatar', user.get('avatar').get('content'));
+    controller.set('user', model);  
+    controller.set('avatar', model.get('avatar').get('content'));
   }
 });

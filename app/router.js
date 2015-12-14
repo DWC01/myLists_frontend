@@ -11,7 +11,6 @@ Router.map(function() {
   
   this.route('users', function() {
     this.route('show', {path: ':user_id'});
-    this.route('campaigns', {path: ':user_id/campaigns'});
   });
 
   this.route('users.new', {path: 'sign-up'});

@@ -3,12 +3,14 @@
 </h3>
 <div class='container'>
   <ul class="collection">
-    {{#each users as |user|}}  
+    {{#each users as |user|}}
       <li class="collection-item avatar">
         <img src="{{user.avatar.profile_url}}" alt="avatar" class="circle">
         <span class="title">
           
+        {{#link-to 'users.show' user.id}}
           {{user.first_name}} {{user.last_name}}
+        {{/link-to}}
         </span>
         <p> First Line <br>
            Second Line

@@ -68,6 +68,7 @@ export default Ember.Controller.extend({
     delete: function() {
       let self = this;
       this.get('user').destroyRecord().then(function() {
+        self.get('session').clearCurrentUserSession();
         self.transitionToRoute('users');
       });
     },
